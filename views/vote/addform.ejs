@@ -1,0 +1,63 @@
+<% include ../includes/header %>
+<div class="container">
+<button class="btn pull-right" style="margin:4px;"><a href="/vote">Voting List</a></button>
+<div class="row centered-form">
+<div class="col-xs-12 col-sm-10 col-md-10 col-sm-offset-2 col-md-offset-8">
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h3 class="panel-title">Add Voting Topics </h3>
+     </div>
+     <div class="panel-body">
+      <form role="form" action="/vote/add" method="post">
+        <div class="row">
+            <div class="col-xs-9 col-sm-9 col-md-9">
+        <div class="form-group">
+            <input type="text" name="topic" id="topic" class="form-control input-sm" placeholder="Voting Topic">
+          </div>
+          </div></div>
+          <div class="row">
+            <div class="col-xs-9 col-sm-9 col-md-9 addoptions" id="addoptions_1">
+            <div class="form-group">
+              <input type="text" name="options" id="options" class="form-control input-sm" placeholder="Option 1">
+            </div>
+          </div>
+            <div class="col-xs-2 col-sm-2 col-md-2">
+                <button class="btn btn-success add-more" type="button"><i class="glyphicon glyphicon-plus"></i> Add Options</button>
+               </div>
+           
+          </div>
+          <div class="row">
+          <div class="col-xs-9 col-sm-9 col-md-9 addodates" id="addodates_1">
+        <div class="form-group">
+          <input type="text" name="availableDates" id="availableDate_1" class="form-control input-sm availableDate" placeholder="Available Date 1">
+        </div>
+        </div>
+        <div class="col-xs-2 col-sm-2 col-md-2">
+            <button class="btn btn-success add-more-dates" type="button"><i class="glyphicon glyphicon-plus"></i> Add Dates</button>
+           </div>
+      </div>
+        <input type="submit" value="Submit" class="btn btn-info btn-block">
+      
+      </form>
+    </div>
+  </div>
+</div>
+</div>
+</div>
+<% include ../includes/footer %>
+<script>
+  $('.add-more').click(function(){
+  let len = $('.addoptions').length+1; 
+    $('.addoptions:last').after('<div class="col-xs-9 col-sm-9 col-md-9 addoptions" id="addoptions_'+len+'"><div class="form-group"><input type="text" name="options" id="options" class="form-control input-sm" placeholder="Option '+len+'"></div></div>');
+  });
+  $('.add-more-dates').click(function(){
+    let len = $('.addodates').length+1;
+    $('.addodates:last').after(' <div class="col-xs-9 col-sm-9 col-md-9 addodates" id="addodates_'+len+'"><div class="form-group"><input type="text" name="availableDates" id="availableDate_'+len+'" class="form-control input-sm availableDate" placeholder="Available Date '+len+'"> </div></div>');
+    $(function () {
+     $('.availableDate').datepicker({format:'d/m/yyyy'});
+     });
+  });
+  $(function () {
+     $('.availableDate').datepicker({format:'d/m/yyyy'});
+     });
+  </script>

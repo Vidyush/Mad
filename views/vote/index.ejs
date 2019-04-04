@@ -1,0 +1,17 @@
+<% include ../includes/header %>
+<div class="container">
+        <button class="btn pull-right" style="margin:4px;"><a href="/vote/addform">Add Voting</a></button>
+    <h2>Team Outing</h2>
+
+  <ul> 
+      <% topics.forEach(function(data){ %>
+  <li><%=data.topic%>
+ <ul>
+     <li>Nanital</li>
+</ul>
+  </li>
+  <%});%>
+
+  </ul>
+<% include ../includes/footer %>
+</div>

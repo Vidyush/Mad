@@ -1,0 +1,31 @@
+<% include ../includes/header %>
+<div class="container">
+<button class="btn pull-right" style="margin:4px;"><a href="/auth/adduser">Add User</a></button>
+
+<% if(msg!='') {%>
+    <%=msg%>
+<%}%>
+    <table class="table">
+        <tr>
+        <th>Name</th>
+        <th>User Name</th>
+        <th>Mobile</th>
+        <th>Email</th>
+        <th>Joining Date</th>
+        <th>Action</th>
+    </tr>
+        <% users.forEach(function(user){%>
+        <tr>
+                <td><%=user.name%></td>
+                <td><%=user.userName%></td>
+                <td><%=user.mobile%></td>
+                <td><%=user.email%></td>
+                <td><%=user.joiningDate%></td>
+                <td><a href="/auth/editUser/<%=user.id%>">Edit</a>
+                    <a href="/auth/deleteUser/<%=user.id%>">Delete</a>
+                </td>
+        </tr>
+        <% });%>
+    </table>
+<% include ../includes/footer %>
+</div>
